@@ -1,7 +1,10 @@
 # BankAccountSystem
 This project simulates basic banking operations like checking balance, depositing money, and withdrawing money using structures.
 
-Code:
+Bank Account: The Account structure holds the account number, holder's name, and balance.
+Functions: The deposit, withdraw, and display functions perform operations on the account.
+Menu: The program provides options to deposit money, withdraw money, or view the balance
+
 #include <stdio.h>
 
 struct Account {
