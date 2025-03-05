@@ -1,10 +1,16 @@
 # BankAccountSystem
 This project simulates basic banking operations like checking balance, depositing money, and withdrawing money using structures.
 
-Bank Account: The Account structure holds the account number, holder's name, and balance.
-Functions: The deposit, withdraw, and display functions perform operations on the account.
-Menu: The program provides options to deposit money, withdraw money, or view the balance
+## Bank Account
+The `Account` structure holds the account number, holder's name, and balance.
 
+## Functions
+The `deposit`, `withdraw`, and `display` functions perform operations on the account.
+
+## Menu
+The program provides options to deposit money, withdraw money, or view the balance.
+
+```c
 #include <stdio.h>
 
 struct Account {
@@ -35,14 +41,15 @@ void display(struct Account acc) {
 
 int main() {
     struct Account account;
-    
+
     printf("Enter Account Number: ");
     scanf("%d", &account.accountNumber);
     getchar();  // To consume the newline left by scanf
+
     printf("Enter Account Holder's Name: ");
     fgets(account.holderName, sizeof(account.holderName), stdin);
     account.holderName[strcspn(account.holderName, "\n")] = 0;  // Remove the newline
-    
+
     account.balance = 0.0f;  // Initialize balance to 0
 
     int choice;
@@ -58,24 +65,24 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1:
-                printf("Enter deposit amount: ");
-                scanf("%f", &amount);
-                deposit(&account, amount);
-                break;
-            case 2:
-                printf("Enter withdrawal amount: ");
-                scanf("%f", &amount);
-                withdraw(&account, amount);
-                break;
-            case 3:
-                display(account);
-                break;
-            case 4:
-                printf("Exiting...\n");
-                return 0;
-            default:
-                printf("Invalid choice! Please try again.\n");
+        case 1:
+            printf("Enter deposit amount: ");
+            scanf("%f", &amount);
+            deposit(&account, amount);
+            break;
+        case 2:
+            printf("Enter withdrawal amount: ");
+            scanf("%f", &amount);
+            withdraw(&account, amount);
+            break;
+        case 3:
+            display(account);
+            break;
+        case 4:
+            printf("Exiting...\n");
+            return 0;
+        default:
+            printf("Invalid choice! Please try again.\n");
         }
     }
 
